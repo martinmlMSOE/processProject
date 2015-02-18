@@ -38,7 +38,8 @@ class ProjectTestCase(unittest.TestCase):
 	def test_connection(self):
 		self.assertEquals(connection, self.connection, "Test Failed, not connected to database")
 		
-	#def test_dates(self):
+	def test_dates(self):
+		print("placeholder")
 		#queryResult = query_database(cursor, self.selectQuery, date(1999, 1, 1), date(2015, 2, 18))
 		#self.assertEquals(queryResult, self.expected, "Test Failed. Query returned: \n " + queryResult)
 		
