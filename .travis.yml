@@ -7,6 +7,12 @@ python:
 install:
   - echo "Entered install..."
   - "pip install -r requirements.txt"
+
+before_script:
+  - echo "Entered before_script..."
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - mysql -e 'create database IF NOT EXISTS process2;'
+
 # command to run tests, e.g. python setup.py test
 script:
   - python processUnitTest.py
