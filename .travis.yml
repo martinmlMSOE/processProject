@@ -16,7 +16,7 @@ before_script:
 
 script:
   - echo "Entered script..."
-  - coverage run --source=localRepo/ processUnitTest.py
+  - coverage run --source=processUnitTest.py
   - python processUnitTest.py
 
 after_success:
