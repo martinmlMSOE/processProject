@@ -6,6 +6,7 @@ python:
 install:
   - echo "Entered install..."
   - "pip install -r requirements.txt"
+  - pip install coveralls
 
 before_script:
   - echo "Entered before_script..."
@@ -14,4 +15,17 @@ before_script:
 
 
 script:
+  - echo "Entered script..."
+  - coverage run --source=coveralls/ processUnitTest.py
   - python processUnitTest.py
+
+after_success:
+  - coveralls
+
+after_script:
+  pip install scrutinizer-ocular
+  ocular --data-file ".coverage" --config-file ".coveragerc"
+
+after_failure:
+  - cat storage/logs/laravel.log
+  - cat tests/_output/*
