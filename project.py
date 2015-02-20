@@ -139,8 +139,6 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 	if(wvm == 1):
 
 		salary = calculate_weekly_wage(salary)
-		
-<<<<<<< HEAD
 	elif(wvm == 2):
 		month = 2
 		salary = calculate_monthly_wage(salary, month)
@@ -263,17 +261,6 @@ def main():
 
 	emp_no = cursor.lastrowid
 
-	#Insert salary information
-
-
-	#data_salary = {
-	 # 'emp_no': emp_no,
-	  #'salary': 50000,
-	  #'from_date': tomorrow,
-	  #'to_date': date(9999, 1, 1),
-	#}
-
-	#cursor.execute(add_salary, data_salary)
 
 	queryResult = query_database(cursor,select_query,hire_start,hire_end)
 	print("for testing purposes")

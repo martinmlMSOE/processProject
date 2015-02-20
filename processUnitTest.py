@@ -29,6 +29,7 @@ class ProjectTestCase(unittest.TestCase):
 	def test_connection(self):
 		print("Testing connection...")
 		self.assertEquals(connection, self.connection, "Test Failed, not connected to database")
+		print("Passed\n")
 		
 	#def test_employees(self):
 	#	startDate = date(2015, 2, 19)
@@ -44,7 +45,7 @@ class ProjectTestCase(unittest.TestCase):
 		print("Testing Weekly Wage Calculator...")
 		calculation = calculate_weekly_wage(50)
 		self.assertEquals(calculation, 250, "not working")
-		print("Passed")
+		print("Passed\n")
 		
 	def test_monthly_calculator(self):
 		print("Testing Monthly Wage Calculator...")
@@ -76,13 +77,15 @@ class ProjectTestCase(unittest.TestCase):
 		calculation = calculate_monthly_wage(50,13)
 		self.assertEquals(calculation, 0, "Incorrectly calculated monthly wage for December" )
 		
+
 		print("Passed")
 		
 	def test_yearly_calculator(self):
 		print("Testing Yearly Wage Calculator...")
 		calculation = calculate_yearly_wage(50)
 		self.assertEquals(calculation, 16700, "Incorrectly calculated yearly wage.")
-		print("Passed")
+		print("Passed\n")
+
 	
 	#def test_dates(self):
 		#queryResult = query_database(cursor, self.selectQuery, date(1999, 1, 1), date(2015, 2, 18))
