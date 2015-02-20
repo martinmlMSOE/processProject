@@ -98,7 +98,7 @@ def query_salaries(cursor, query):
 		cursor.execute(query)
 		result = "";
 		for (emp_no, salary) in cursor:
-			result += "{}'s weekly salary is {}".format(
+			result += "{}'s calculated salary is {}".format(
 			emp_no, salary) + "\n"
 		#print(result) for testing purposes
 		return result
@@ -140,12 +140,12 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 
 		salary = calculate_weekly_wage(salary)
 		
+<<<<<<< HEAD
 	elif(wvm == 2):
 		month = 2
 		salary = calculate_monthly_wage(salary, month)
 	else:
 		salary = calculate_yearly_wage(salary)
-
 
 	add_salary = ("INSERT into SALARIES "
 				"(emp_no, salary, from_date, to_date)"
@@ -159,8 +159,6 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 def calculate_weekly_wage(daily):
 	weekly = daily * 5
 	return weekly
-
-
 	
 def calculate_monthly_wage(daily, month):
 	monthly = int(daily)
@@ -184,6 +182,7 @@ def calculate_yearly_wage(daily):
 	return yearly
 	
 	
+
 
 		
 # HERE for all intents and purposes is main
@@ -246,7 +245,7 @@ def main():
 		elif response == 2:
 			emp_no = int(raw_input("Please enter the employee's id: "))
 			salary = int(raw_input("Please enter the desired daily pay: "))
-			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14))
+			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),1)
 		elif response == 3:
 			emp_no = int(raw_input("Please enter the employee's id: "))
 			salary = int(raw_input("Please enter the desired daily pay: "))

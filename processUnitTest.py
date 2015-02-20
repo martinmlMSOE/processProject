@@ -27,6 +27,7 @@ class ProjectTestCase(unittest.TestCase):
 	#	self.assertEquals(queryResult, self.expected, "Test Failed. Query returned: \n " + queryResult)
 		
 	def test_connection(self):
+		print("Testing connection...")
 		self.assertEquals(connection, self.connection, "Test Failed, not connected to database")
 		
 	#def test_employees(self):
@@ -39,7 +40,8 @@ class ProjectTestCase(unittest.TestCase):
 	#def test_salary(self):
 	#	print ("place holder")
 	
-	def test_wage_calculator(self):
+	def test_weekly_calculator(self):
+		print("Testing Weekly Wage Calculator...")
 		calculation = calculate_weekly_wage(50)
 		self.assertEquals(calculation, 250, "not working")
 		print("Passed")
