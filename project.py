@@ -133,17 +133,27 @@ def add_employees(cursor, firstName, lastName, emp_no, hire, gender, fire):
 			emp_no, lastName, firstName, hire)
 	return queryString
 	
+<<<<<<< HEAD
 
+=======
+>>>>>>> 984f0b119fd8aebf16785bfe47a36d780d0e6926
 def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 
 	if(wvm == 1):
 
 		salary = calculate_weekly_wage(salary)
+<<<<<<< HEAD
 	elif(wvm == 2):
 		month = 2
 		salary = calculate_monthly_wage(salary, month)
 	else:
 		salary = calculate_yearly_wage(salary)
+=======
+		
+	else:
+		month = 2
+		salary = calculate_monthly_wage(salary, month)
+>>>>>>> 984f0b119fd8aebf16785bfe47a36d780d0e6926
 
 	add_salary = ("INSERT into SALARIES "
 				"(emp_no, salary, from_date, to_date)"
@@ -171,6 +181,7 @@ def calculate_monthly_wage(daily, month):
 		monthly = 0
 		print("Invalid month entered, please enter a valid month.")
 	return monthly
+<<<<<<< HEAD
 	
 def calculate_yearly_wage(daily):
 	#for loop through each month, using calculate monthly wage
@@ -182,6 +193,8 @@ def calculate_yearly_wage(daily):
 	
 
 
+=======
+>>>>>>> 984f0b119fd8aebf16785bfe47a36d780d0e6926
 		
 # HERE for all intents and purposes is main
 

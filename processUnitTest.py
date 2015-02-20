@@ -76,7 +76,6 @@ class ProjectTestCase(unittest.TestCase):
 		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for December" )
 		calculation = calculate_monthly_wage(50,13)
 		self.assertEquals(calculation, 0, "Incorrectly calculated monthly wage for December" )
-		
 
 		print("Passed")
 		
@@ -85,6 +84,7 @@ class ProjectTestCase(unittest.TestCase):
 		calculation = calculate_yearly_wage(50)
 		self.assertEquals(calculation, 16700, "Incorrectly calculated yearly wage.")
 		print("Passed\n")
+
 
 	
 	#def test_dates(self):
