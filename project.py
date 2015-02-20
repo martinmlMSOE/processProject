@@ -98,7 +98,7 @@ def query_salaries(cursor, query):
 		cursor.execute(query)
 		result = "";
 		for (emp_no, salary) in cursor:
-			result += "{}'s weekly salary is {}".format(
+			result += "{}'s calculated salary is {}".format(
 			emp_no, salary) + "\n"
 		#print(result) for testing purposes
 		return result
@@ -133,7 +133,15 @@ def add_employees(cursor, firstName, lastName, emp_no, hire, gender, fire):
 			emp_no, lastName, firstName, hire)
 	return queryString
 	
-def add_salaries(cursor, emp_no, salary, from_date, to_date):
+def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
+
+	if(wvm == 1):
+
+		salary = calculate_weekly_wage(salary)
+		
+	else:
+		month = 2
+		salary = calculate_monthly_wage(salary, month)
 
 	add_salary = ("INSERT into SALARIES "
 				"(emp_no, salary, from_date, to_date)"
@@ -147,6 +155,20 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date):
 def calculate_weekly_wage(daily):
 	weekly = daily * 5
 	return weekly
+	
+def calculate_monthly_wage(daily, month):
+	monthly = int(daily)
+	
+	if month == 4 or month == 6 or month == 9 or month == 11:
+		monthly = daily * 30
+	elif month == 2:
+		monthly = daily * 28
+	elif month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+		monthly = daily * 31
+	else:
+		monthly = 0
+		print("Invalid month entered, please enter a valid month.")
+	return monthly
 		
 # HERE for all intents and purposes is main
 
@@ -183,7 +205,8 @@ def main():
 
 		print ("1. Add an Employee")
 		print ("2. Calculate and Set an Employee's Weekly Wage")
-		print ("3. Exit")
+		print ("3. Calculate and set an Employee's Monthly Wage")
+		print ("4. Exit")
 		response = int(raw_input("Select an action: ")) 
 
 		if response == 1:
@@ -205,8 +228,12 @@ def main():
 		elif response == 2:
 			emp_no = int(raw_input("Please enter the employee's id: "))
 			salary = int(raw_input("Please enter the desired daily pay: "))
-			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14))
+			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),1)
 		elif response == 3:
+			emp_no = int(raw_input("Please enter the employee's id: "))
+			salary = int(raw_input("Please enter the desired daily pay: "))
+			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),2)
+		elif response == 4:
 			running = False
 
 
