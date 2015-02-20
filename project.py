@@ -133,9 +133,7 @@ def add_employees(cursor, firstName, lastName, emp_no, hire, gender, fire):
 			emp_no, lastName, firstName, hire)
 	return queryString
 	
-<<<<<<< Updated upstream
-def add_salaries(cursor, emp_no, salary, from_date, to_date):
-=======
+
 def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 
 	if(wvm == 1):
@@ -147,7 +145,7 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 		salary = calculate_monthly_wage(salary, month)
 	else:
 		salary = calculate_yearly_wage(salary)
->>>>>>> Stashed changes
+
 
 	add_salary = ("INSERT into SALARIES "
 				"(emp_no, salary, from_date, to_date)"
@@ -161,8 +159,8 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
 def calculate_weekly_wage(daily):
 	weekly = daily * 5
 	return weekly
-<<<<<<< Updated upstream
-=======
+
+
 	
 def calculate_monthly_wage(daily, month):
 	monthly = int(daily)
@@ -186,7 +184,7 @@ def calculate_yearly_wage(daily):
 	return yearly
 	
 	
->>>>>>> Stashed changes
+
 		
 # HERE for all intents and purposes is main
 
@@ -223,13 +221,10 @@ def main():
 
 		print ("1. Add an Employee")
 		print ("2. Calculate and Set an Employee's Weekly Wage")
-<<<<<<< Updated upstream
-		print ("3. Exit")
-=======
 		print ("3. Calculate and Set an Employee's Monthly Wage")
 		print ("4. Calculate and Set an Employee's Yearly Wage")
 		print ("5. Exit")
->>>>>>> Stashed changes
+
 		response = int(raw_input("Select an action: ")) 
 
 		if response == 1:
@@ -253,8 +248,6 @@ def main():
 			salary = int(raw_input("Please enter the desired daily pay: "))
 			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14))
 		elif response == 3:
-<<<<<<< Updated upstream
-=======
 			emp_no = int(raw_input("Please enter the employee's id: "))
 			salary = int(raw_input("Please enter the desired daily pay: "))
 			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),2)
@@ -263,7 +256,6 @@ def main():
 			salary = int(raw_input("Please enter the desired daily pay: "))
 			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),3)
 		elif response == 5:
->>>>>>> Stashed changes
 			running = False
 
 

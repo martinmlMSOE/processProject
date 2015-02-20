@@ -10,11 +10,8 @@ import unittest
 
 #this seems excessive but it works.
 from project import calculate_weekly_wage
-<<<<<<< Updated upstream
-=======
 from project import calculate_monthly_wage
 from project import calculate_yearly_wage
->>>>>>> Stashed changes
 from project import connection
  
 
@@ -45,8 +42,6 @@ class ProjectTestCase(unittest.TestCase):
 	def test_wage_calculator(self):
 		calculation = calculate_weekly_wage(50)
 		self.assertEquals(calculation, 250, "not working")
-<<<<<<< Updated upstream
-=======
 		print("Passed")
 		
 	def test_monthly_calculator(self):
@@ -86,7 +81,6 @@ class ProjectTestCase(unittest.TestCase):
 		calculation = calculate_yearly_wage(50)
 		self.assertEquals(calculation, 16700, "Incorrectly calculated yearly wage.")
 		print("Passed")
->>>>>>> Stashed changes
 	
 	#def test_dates(self):
 		#queryResult = query_database(cursor, self.selectQuery, date(1999, 1, 1), date(2015, 2, 18))
