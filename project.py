@@ -242,17 +242,6 @@ def main():
 
 	emp_no = cursor.lastrowid
 
-	#Insert salary information
-
-
-	#data_salary = {
-	 # 'emp_no': emp_no,
-	  #'salary': 50000,
-	  #'from_date': tomorrow,
-	  #'to_date': date(9999, 1, 1),
-	#}
-
-	#cursor.execute(add_salary, data_salary)
 
 	queryResult = query_database(cursor,select_query,hire_start,hire_end)
 	print("for testing purposes")
