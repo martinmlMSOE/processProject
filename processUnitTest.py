@@ -10,6 +10,11 @@ import unittest
 
 #this seems excessive but it works.
 from project import calculate_weekly_wage
+<<<<<<< Updated upstream
+=======
+from project import calculate_monthly_wage
+from project import calculate_yearly_wage
+>>>>>>> Stashed changes
 from project import connection
  
 
@@ -40,6 +45,48 @@ class ProjectTestCase(unittest.TestCase):
 	def test_wage_calculator(self):
 		calculation = calculate_weekly_wage(50)
 		self.assertEquals(calculation, 250, "not working")
+<<<<<<< Updated upstream
+=======
+		print("Passed")
+		
+	def test_monthly_calculator(self):
+		print("Testing Monthly Wage Calculator...")
+		
+		calculation = calculate_monthly_wage(50,1)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for January, returned " + str(calculation) )
+		calculation = calculate_monthly_wage(50,2)
+		self.assertEquals(calculation, 1400, "Incorrectly calculated monthly wage for February" )
+		calculation = calculate_monthly_wage(50,3)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for March" )
+		calculation = calculate_monthly_wage(50,4)
+		self.assertEquals(calculation, 1500, "Incorrectly calculated monthly wage for April" )
+		calculation = calculate_monthly_wage(50,5)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for May" )
+		calculation = calculate_monthly_wage(50,6)
+		self.assertEquals(calculation, 1500, "Incorrectly calculated monthly wage for June" )
+		calculation = calculate_monthly_wage(50,7)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for July" )
+		calculation = calculate_monthly_wage(50,8)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for August" )
+		calculation = calculate_monthly_wage(50,9)
+		self.assertEquals(calculation, 1500, "Incorrectly calculated monthly wage for September" )
+		calculation = calculate_monthly_wage(50,10)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for October" )
+		calculation = calculate_monthly_wage(50,11)
+		self.assertEquals(calculation, 1500, "Incorrectly calculated monthly wage for November" )
+		calculation = calculate_monthly_wage(50,12)
+		self.assertEquals(calculation, 1550, "Incorrectly calculated monthly wage for December" )
+		calculation = calculate_monthly_wage(50,13)
+		self.assertEquals(calculation, 0, "Incorrectly calculated monthly wage for December" )
+		
+		print("Passed")
+		
+	def test_yearly_calculator(self):
+		print("Testing Yearly Wage Calculator...")
+		calculation = calculate_yearly_wage(50)
+		self.assertEquals(calculation, 16700, "Incorrectly calculated yearly wage.")
+		print("Passed")
+>>>>>>> Stashed changes
 	
 	#def test_dates(self):
 		#queryResult = query_database(cursor, self.selectQuery, date(1999, 1, 1), date(2015, 2, 18))

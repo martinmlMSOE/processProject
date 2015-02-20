@@ -133,7 +133,21 @@ def add_employees(cursor, firstName, lastName, emp_no, hire, gender, fire):
 			emp_no, lastName, firstName, hire)
 	return queryString
 	
+<<<<<<< Updated upstream
 def add_salaries(cursor, emp_no, salary, from_date, to_date):
+=======
+def add_salaries(cursor, emp_no, salary, from_date, to_date, wvm):
+
+	if(wvm == 1):
+
+		salary = calculate_weekly_wage(salary)
+		
+	elif(wvm == 2):
+		month = 2
+		salary = calculate_monthly_wage(salary, month)
+	else:
+		salary = calculate_yearly_wage(salary)
+>>>>>>> Stashed changes
 
 	add_salary = ("INSERT into SALARIES "
 				"(emp_no, salary, from_date, to_date)"
@@ -147,6 +161,32 @@ def add_salaries(cursor, emp_no, salary, from_date, to_date):
 def calculate_weekly_wage(daily):
 	weekly = daily * 5
 	return weekly
+<<<<<<< Updated upstream
+=======
+	
+def calculate_monthly_wage(daily, month):
+	monthly = int(daily)
+	
+	if month == 4 or month == 6 or month == 9 or month == 11:
+		monthly = daily * 30
+	elif month == 2:
+		monthly = daily * 28
+	elif month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+		monthly = daily * 31
+	else:
+		monthly = 0
+		print("Invalid month entered, please enter a valid month.")
+	return monthly
+	
+def calculate_yearly_wage(daily):
+	#for loop through each month, using calculate monthly wage
+	yearly = 0
+	for x in range(1,12):
+		yearly += calculate_monthly_wage(daily, x)
+	return yearly
+	
+	
+>>>>>>> Stashed changes
 		
 # HERE for all intents and purposes is main
 
@@ -183,7 +223,13 @@ def main():
 
 		print ("1. Add an Employee")
 		print ("2. Calculate and Set an Employee's Weekly Wage")
+<<<<<<< Updated upstream
 		print ("3. Exit")
+=======
+		print ("3. Calculate and Set an Employee's Monthly Wage")
+		print ("4. Calculate and Set an Employee's Yearly Wage")
+		print ("5. Exit")
+>>>>>>> Stashed changes
 		response = int(raw_input("Select an action: ")) 
 
 		if response == 1:
@@ -207,6 +253,17 @@ def main():
 			salary = int(raw_input("Please enter the desired daily pay: "))
 			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14))
 		elif response == 3:
+<<<<<<< Updated upstream
+=======
+			emp_no = int(raw_input("Please enter the employee's id: "))
+			salary = int(raw_input("Please enter the desired daily pay: "))
+			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),2)
+		elif response == 4:
+			emp_no = int(raw_input("Please enter the employee's id: "))
+			salary = int(raw_input("Please enter the desired daily pay: "))
+			add_salaries(cursor, emp_no, salary, tomorrow, date(1997, 6, 14),3)
+		elif response == 5:
+>>>>>>> Stashed changes
 			running = False
 
 
